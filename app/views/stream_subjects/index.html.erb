@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stream Subjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stream</th>
+      <th>Subject</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stream_subjects.each do |stream_subject| %>
+      <tr>
+        <td><%= stream_subject.stream.abbreviation %></td>
+        <td><%= stream_subject.subject.abbreviation %></td>
+        <td><%= stream_subject.year.humanize %></td>
+        <td><%= link_to 'Show', stream_subject %></td>
+        <td><%= link_to 'Edit', edit_stream_subject_path(stream_subject) %></td>
+        <td><%= link_to 'Destroy', stream_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stream Subject', new_stream_subject_path %>

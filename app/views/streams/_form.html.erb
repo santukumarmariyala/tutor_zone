@@ -1,0 +1,36 @@
+<%= form_with(model: stream, local: true) do |form| %>
+  <% if stream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stream.errors.count, "error") %> prohibited this stream from being saved:</h2>
+
+      <ul>
+      <% stream.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :abbreviation %>
+    <%= form.text_field :abbreviation, id: :stream_abbreviation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :stream_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :stream_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :academic_type_id %>
+  <%= collection_select(:stream, :academic_type_id, AcademicType.all, :id, :abbreviation, prompt: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

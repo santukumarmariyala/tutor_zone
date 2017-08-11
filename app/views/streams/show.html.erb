@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @stream.abbreviation %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @stream.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stream.description %>
+</p>
+
+<p>
+  <strong>Academic type:</strong>
+  <%= @stream.academic_type.abbreviation %>
+</p>
+
+<%= link_to 'Edit', edit_stream_path(@stream) %> |
+<%= link_to 'Back', streams_path %>

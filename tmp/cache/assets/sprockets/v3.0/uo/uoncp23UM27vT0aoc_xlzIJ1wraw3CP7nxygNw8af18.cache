@@ -1,0 +1,18 @@
+I"Å(function() {
+  jQuery(function() {
+    var years;
+    years = $('#subject_year_id1').html();
+    return $('#subject_stream_id1').change(function() {
+      var options, stream;
+      stream = $('#stream_id1:selected').text();
+      options = $(years).filter("optgroup[label='" + stream + "']").html();
+      if (options) {
+        return $('#year_id1').html();
+      } else {
+        return $('#year_id1').empty();
+      }
+    });
+  });
+
+}).call(this);
+:ET

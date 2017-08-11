@@ -1,0 +1,59 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.select :type, User.types, prompt:  true %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile, autocomplete: "off" %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, autocomplete: "off" %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autocomplete: "off" %>
+  </div>
+  <div class="field display">
+    <%= f.label :qualification %><br />
+    <%= f.text_field :qualification, autocomplete: "off" %>
+  </div>
+  <div class="field display">
+    <%= f.label :experience %><br />
+    <%= f.text_field :experience, autocomplete: "off" %>
+  </div>
+  <div class="field display">
+    <%= f.label :academic_type_id %><br />
+    <%= f.collection_select :academic_type_id, AcademicType.all, :id, :abbreviation, prompt: true %>
+  </div>
+  <div class="field display">
+    <%= f.label :stream_id %><br />
+    <%= f.grouped_collection_select :stream_id, AcademicType.order(:abbreviation), :streams, :abbreviation, :id, :abbreviation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>

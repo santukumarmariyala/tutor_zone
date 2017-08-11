@@ -1,0 +1,32 @@
+<%= form_with(model: stream_subject, local: true) do |form| %>
+  <% if stream_subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stream_subject.errors.count, "error") %> prohibited this stream_subject from being saved:</h2>
+
+      <ul>
+      <% stream_subject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :stream_id %>
+    <%= form.collection_select :stream_id, Stream.all, :id, :abbreviation, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject_id %>
+    <%= form.collection_select :subject_id,Subject.all, :id, :abbreviation, prompt: true %>
+  </div>
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.select :year, StreamSubject.years %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

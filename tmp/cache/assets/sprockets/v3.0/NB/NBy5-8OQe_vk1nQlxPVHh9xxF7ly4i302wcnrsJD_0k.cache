@@ -1,0 +1,19 @@
+I"ë(function() {
+  jQuery(function() {
+    var years;
+    years = $('#subject_year_id').html();
+    return $('#subject_stream_id').change(function() {
+      var options, stream;
+      alert("hi");
+      stream = $('#subject_stream_id:selected').text();
+      options = $(years).filter("optgroup[label='" + stream + "']").html();
+      if (options) {
+        return $('#subject_year_id').html();
+      } else {
+        return $('#subject_year_id').empty();
+      }
+    });
+  });
+
+}).call(this);
+:ET

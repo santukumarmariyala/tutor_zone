@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @academic_type.abbreviation %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @academic_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @academic_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_academic_type_path(@academic_type) %> |
+<%= link_to 'Back', academic_types_path %>
